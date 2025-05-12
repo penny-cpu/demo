@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>傩面具组合</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f6f3ec;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    #mask-container {
+      position: relative;
+      width: 90vw;
+      height: 90vw;
+      margin: 20px auto;
+    }
+    .mask-part {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .controls button {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>傩面具五官组合</h2>
+  <div id="mask-container">
+    <img id="head" class="mask-part" src="assets/head1.png" />
+    <img id="eyes" class="mask-part" src="assets/eyes1.png" />
+    <img id="nose" class="mask-part" src="assets/nose1.png" />
+    <img id="mouth" class="mask-part" src="assets/mouth1.png" />
+  </div>
+  <div class="controls">
+    <button onclick="switchPart('head')">换头</button>
+    <button onclick="switchPart('eyes')">换眼睛</button>
+    <button onclick="switchPart('nose')">换鼻子</button>
+    <button onclick="switchPart('mouth')">换嘴巴</button>
+  </div>
+  <script>
+    const parts = {
+      head: ['assets/head1.png', 'assets/head2.png', 'assets/head3.png', 'assets/head4.png', 'assets/head5.png', 'assets/head6.png', 'assets/head7.png', 'assets/head8.png', 'assets/head9.png', 'assets/head10.png', 'assets/head11.png', 'assets/head12.png', 'assets/head13.png', 'assets/head14.png', 'assets/head15.png', 'assets/head16.png', 'assets/head17.png', 'assets/head18.png', 'assets/head19.png', 'assets/head20.png', 'assets/head21.png', 'assets/head22.png', 'assets/head23.png', 'assets/head24.png', 'assets/head25.png'],
+      eyes: ['assets/eyes1.png', 'assets/eyes2.png', 'assets/eyes3.png', 'assets/eyes4.png', 'assets/eyes5.png', 'assets/eyes6.png', 'assets/eyes7.png', 'assets/eyes8.png', 'assets/eyes9.png', 'assets/eyes10.png', 'assets/eyes11.png', 'assets/eyes12.png', 'assets/eyes13.png', 'assets/eyes14.png', 'assets/eyes15.png', 'assets/eyes16.png', 'assets/eyes17.png', 'assets/eyes18.png', 'assets/eyes19.png', 'assets/eyes20.png', 'assets/eyes21.png', 'assets/eyes22.png', 'assets/eyes23.png', 'assets/eyes24.png', 'assets/eyes25.png'],
+      nose: ['assets/nose1.png', 'assets/nose2.png', 'assets/nose3.png', 'assets/nose4.png', 'assets/nose5.png', 'assets/nose6.png', 'assets/nose7.png', 'assets/nose8.png', 'assets/nose9.png', 'assets/nose10.png', 'assets/nose11.png', 'assets/nose12.png', 'assets/nose13.png', 'assets/nose14.png', 'assets/nose15.png', 'assets/nose16.png', 'assets/nose17.png', 'assets/nose18.png', 'assets/nose19.png', 'assets/nose20.png', 'assets/nose21.png', 'assets/nose22.png', 'assets/nose23.png', 'assets/nose24.png', 'assets/nose25.png'],
+      mouth: ['assets/mouth1.png', 'assets/mouth2.png', 'assets/mouth3.png', 'assets/mouth4.png', 'assets/mouth5.png', 'assets/mouth6.png', 'assets/mouth7.png', 'assets/mouth8.png', 'assets/mouth9.png', 'assets/mouth10.png', 'assets/mouth11.png', 'assets/mouth12.png', 'assets/mouth13.png', 'assets/mouth14.png', 'assets/mouth15.png', 'assets/mouth16.png', 'assets/mouth17.png', 'assets/mouth18.png', 'assets/mouth19.png', 'assets/mouth20.png', 'assets/mouth21.png', 'assets/mouth22.png', 'assets/mouth23.png', 'assets/mouth24.png', 'assets/mouth25.png']
+    };
+    const indexes = {
+      head: 0,
+      eyes: 0,
+      nose: 0,
+      mouth: 0
+    };
+    function switchPart(part) {
+      indexes[part] = (indexes[part] + 1) % parts[part].length;
+      document.getElementById(part).src = parts[part][indexes[part]];
+    }
+  </script>
+</body>
+</html>
